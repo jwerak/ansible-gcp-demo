@@ -1,0 +1,14 @@
+---
+- name: delete an instance
+  gcp_compute_instance:
+    state: absent
+    name: "{{ vm_name }}"
+    zone: "{{ zone }}"
+    project: "{{ gcp_project }}"
+
+- name: delete an address
+  gcp_compute_address:
+    name: "{{ gcp_vm_address_name }}"
+    region: "{{ region }}"
+    project: "{{ gcp_project }}"
+    state: absent
